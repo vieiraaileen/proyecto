@@ -223,6 +223,21 @@ section {
     margin-top: auto;
 }
 
+.portraits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.portraits img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid var(--comic-black);
+    border-radius: 50%;
+}
+
 .hero-info h3 {
     font-size: 2rem;
     color: var(--comic-blue);
