@@ -1,0 +1,27 @@
+<main>
+    <section id="hero" class="rivals-banner">
+        <div class="hero-content">
+            <h1 class="glitch-text">MARVEL RIVALS</h1>
+            <p>6v6 Super Hero Team-Based Shooter</p>
+            <a href="#roster" class="btn-hero">Ver Héroes</a>
+        </div>
+    </section>
+
+    <section id="roster">
+        <h2>Elige tu Rol</h2>
+        <div class="roles-grid">
+            <div class="role-card" data-role="Vanguard">
+                <img src="icon-vanguard.png" alt="Vanguard">
+                <h3>Vanguard</h3>
+            </div>
+            <div class="role-card" data-role="Duelist">
+                <img src="icon-duelist.png" alt="Duelist">
+                <h3>Duelist</h3>
+            </div>
+            <div class="role-card" data-role="Strategist">
+                <img src="icon-strategist.png" alt="Strategist">
+                <h3>Strategist</h3>
+            </div>
+        </div>
+    </section>
+</main>
