@@ -225,17 +225,20 @@ section {
 
 .portraits {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 10px;
 }
 
 .portraits img {
-    width: 60px;
-    height: 60px;
+    width: 80px;   /* más grande */
+    height: 80px;
     object-fit: cover;
-    border: 2px solid var(--comic-black);
+    border: 3px solid var(--comic-black);
     border-radius: 50%;
+    background-color: white;
+    padding: 5px; /* 👈 esto hace que SÍ se note */
+
 }
 
 .hero-info h3 {
