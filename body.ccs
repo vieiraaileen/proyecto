@@ -1,0 +1,41 @@
+body {
+    background-color: #0d0d0d;
+    color: white;
+}
+
+.rivals-banner {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.5), #0d0d0d), url('tu-fondo-rivals.jpg');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.glitch-text {
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: #F0131E;
+    text-shadow: 2px 2px #518CCA; /* Efecto de desfase temporal */
+}
+
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 50px;
+}
+
+.role-card {
+    border: 1px solid #333;
+    padding: 20px;
+    transition: transform 0.3s, border-color 0.3s;
+    background: #1a1a1a;
+}
+
+.role-card:hover {
+    transform: translateY(-10px);
+    border-color: #F0131E;
+    box-shadow: 0 0 15px rgba(240, 19, 30, 0.5);
+}
