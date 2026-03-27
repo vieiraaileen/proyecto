@@ -1,41 +1,290 @@
+/* =========================================
+   1. VARIABLES Y FUENTES (Paleta Cómic)
+========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;700;900&display=swap');
+
+:root {
+    --comic-yellow: #FFDE00;
+    --comic-red: #E62429;
+    --comic-blue: #00AEEF;
+    --comic-black: #111111;
+    --comic-white: #FFFFFF;
+    
+    /* Grosor de línea y sombra para mantener consistencia */
+    --border-thickness: 4px;
+    --shadow-offset: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #0d0d0d;
-    color: white;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4;
+    /* Patrón sutil de puntos Ben-Day para el fondo */
+    background-image: radial-gradient(var(--comic-black) 10%, transparent 11%), 
+                      radial-gradient(var(--comic-black) 10%, transparent 11%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    color: var(--comic-black);
+    line-height: 1.6;
 }
 
-.rivals-banner {
-    height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.5), #0d0d0d), url('tu-fondo-rivals.jpg');
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+/* =========================================
+   2. CLASES UTILITARIAS (El "Estilo Cómic")
+========================================= */
+.comic-border {
+    border: var(--border-thickness) solid var(--comic-black);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--comic-black);
+    background-color: var(--comic-white);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.glitch-text {
-    font-size: 4rem;
+/* Efecto al pasar el mouse: el panel "salta" hacia ti */
+.comic-border:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px var(--comic-black);
+}
+
+h1, h2, h3, .action-title {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: #F0131E;
-    text-shadow: 2px 2px #518CCA; /* Efecto de desfase temporal */
 }
 
-.roles-grid {
+/* =========================================
+   3. NAVEGACIÓN
+========================================= */
+.comic-header {
+    background-color: var(--comic-yellow);
+    border-bottom: var(--border-thickness) solid var(--comic-black);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: 'Bangers', cursive;
+    font-size: 2.5rem;
+    color: var(--comic-red);
+    text-shadow: 2px 2px 0 var(--comic-black);
+    -webkit-text-stroke: 1px var(--comic-black);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--comic-black);
+    font-weight: 900;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--comic-red);
+}
+
+/* =========================================
+   4. HERO SECTION (White Fox)
+========================================= */
+.hero-section {
+    background-color: var(--comic-blue);
+    padding: 4rem 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.hero-content {
+    background-color: var(--comic-yellow);
+    padding: 3rem;
+    text-align: center;
+    max-width: 800px;
+    border: var(--border-thickness) solid var(--comic-black);
+    box-shadow: 12px 12px 0px var(--comic-black);
+    transform: rotate(-2deg); /* Da ese aspecto dinámico de cómic */
+}
+
+.action-title {
+    font-size: 4rem;
+    color: var(--comic-red);
+    text-shadow: 3px 3px 0 var(--comic-black);
+    margin-bottom: 1rem;
+}
+
+.speech-bubble {
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: var(--comic-white);
+    padding: 1rem;
+    border: 3px solid var(--comic-black);
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+/* La colita del globo de texto */
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: var(--comic-black) transparent transparent transparent;
+    transform: translateX(-50%);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--comic-red);
+    color: var(--comic-white);
+    padding: 1rem 2rem;
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    text-decoration: none;
+    border: var(--border-thickness) solid var(--comic-black);
+    box-shadow: 6px 6px 0px var(--comic-black);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.cta-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px var(--comic-black);
+}
+
+/* =========================================
+   5. SECCIONES COMUNES (Noticias, Roster, Team-ups)
+========================================= */
+section {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    background-color: var(--comic-black);
+    color: var(--comic-white);
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    transform: rotate(1deg);
+}
+
+/* Sistema de Grid Responsivo (¡La magia de CSS Grid!) */
+.news-grid, .roster-grid, .teamup-grid {
     display: grid;
+    /* Esto hace que se adapte automáticamente al tamaño de la pantalla */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 50px;
+    gap: 2rem;
 }
 
-.role-card {
-    border: 1px solid #333;
-    padding: 20px;
-    transition: transform 0.3s, border-color 0.3s;
-    background: #1a1a1a;
+/* =========================================
+   6. TARJETAS (Noticias y Héroes)
+========================================= */
+.news-card, .hero-card, .teamup-card {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.role-card:hover {
-    transform: translateY(-10px);
-    border-color: #F0131E;
-    box-shadow: 0 0 15px rgba(240, 19, 30, 0.5);
+.news-card img, .hero-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Asegura que las imágenes no se deformen */
+    border: 3px solid var(--comic-black);
+    margin-bottom: 1rem;
+}
+
+.hero-info {
+    text-align: center;
+    margin-top: auto;
+}
+
+.hero-info h3 {
+    font-size: 2rem;
+    color: var(--comic-blue);
+    -webkit-text-stroke: 1px var(--comic-black);
+}
+
+.role {
+    display: inline-block;
+    background-color: var(--comic-yellow);
+    padding: 0.2rem 1rem;
+    font-weight: 900;
+    border: 2px solid var(--comic-black);
+    margin-top: 0.5rem;
+}
+
+/* =========================================
+   7. FILTROS DE BOTONES
+========================================= */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: var(--comic-white);
+    border: 3px solid var(--comic-black);
+    padding: 0.5rem 1.5rem;
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--comic-black);
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: var(--comic-blue);
+    color: var(--comic-white);
+    transform: translate(-2px, -2px);
+}
+
+/* =========================================
+   8. MEDIA QUERIES (Para Móviles)
+========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .action-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content {
+        padding: 1.5rem;
+        transform: none; /* Quitamos la rotación en móvil para ahorrar espacio */
+    }
+
+    /* Ajustamos el grid para móviles pequeños */
+    .news-grid, .roster-grid, .teamup-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
 }
